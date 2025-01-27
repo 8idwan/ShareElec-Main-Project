@@ -1,0 +1,8 @@
+D:\ProjWeb\ShareElec-Main-Project\SherElec-Back-end\obj\Debug\net9.0\SherElec-Back-end.csproj.AssemblyReference.cache
+D:\ProjWeb\ShareElec-Main-Project\SherElec-Back-end\obj\Debug\net9.0\SherElec-Back-end.GeneratedMSBuildEditorConfig.editorconfig
+D:\ProjWeb\ShareElec-Main-Project\SherElec-Back-end\obj\Debug\net9.0\SherElec-Back-end.AssemblyInfoInputs.cache
+D:\ProjWeb\ShareElec-Main-Project\SherElec-Back-end\obj\Debug\net9.0\SherElec-Back-end.AssemblyInfo.cs
+D:\ProjWeb\ShareElec-Main-Project\SherElec-Back-end\obj\Debug\net9.0\SherElec-Back-end.csproj.CoreCompileInputs.cache
+D:\ProjWeb\ShareElec-Main-Project\SherElec-Back-end\obj\Debug\net9.0\SherElec-Back-end.MvcApplicationPartsAssemblyInfo.cs
+D:\ProjWeb\ShareElec-Main-Project\SherElec-Back-end\obj\Debug\net9.0\SherElec-Back-end.MvcApplicationPartsAssemblyInfo.cache
+D:\ProjWeb\ShareElec-Main-Project\SherElec-Back-end\obj\Debug\net9.0\SherElec-Back-end.sourcelink.json

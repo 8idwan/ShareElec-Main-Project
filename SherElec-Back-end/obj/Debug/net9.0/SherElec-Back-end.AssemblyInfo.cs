@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SherElec-Back-end")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+11e70267d7b176d15e8240765f69ba04ba4fa453")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e1c187f3defe1e32a5a5369d0a76bdbea5f97e11")]
 [assembly: System.Reflection.AssemblyProductAttribute("SherElec-Back-end")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SherElec-Back-end")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
