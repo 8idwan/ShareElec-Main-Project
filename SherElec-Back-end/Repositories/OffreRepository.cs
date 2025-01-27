@@ -1,4 +1,6 @@
-﻿using SherElec_Back_end.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using SherElec_Back_end.Data;
+using SherElec_Back_end.Models;
 using SherElec_Back_end.Repositories.Interfaces;
 
 namespace SherElec_Back_end.Repositories

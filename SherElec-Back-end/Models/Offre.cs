@@ -17,4 +17,4 @@ namespace SherElec_Back_end.Models
             public required DateOnly Date { get; set; }
         }
     }
-}
+

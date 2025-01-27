@@ -59,6 +59,3 @@ namespace SherElec_Back_end.Services
         }
     }
 }
-
-    }
-}
