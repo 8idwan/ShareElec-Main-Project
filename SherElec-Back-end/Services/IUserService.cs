@@ -9,7 +9,7 @@ namespace SherElec_Back_end.Services
          string GenererToken(UserRespenseDTO utilisateur);
          Task<UserRespenseDTO> AuthentifierUtilisateurAsync(string email, string motDePasse);
 
-
+        Task<UserRespenseDTO> UpdateUserAsync(int id, UserRequestDTO requestDto);
 
     }
 }

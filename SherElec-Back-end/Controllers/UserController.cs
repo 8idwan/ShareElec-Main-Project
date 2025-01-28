@@ -70,6 +70,39 @@ namespace SherElec_Back_end.Controllers
             }
         }
 
-    
+        [Authorize]
+        [HttpPut("maj/{id}")]
+        public async Task<ActionResult<UserRespenseDTO>> UpdateUser(int id, [FromBody] UserRequestDTO userRequestDto)
+        {
+            if (userRequestDto == null)
+            {
+                return BadRequest("Les données de l'utilisateur sont invalides.");
+            }
+
+            // Récupérer l'ID utilisateur à partir du jeton JWT
+            var userIdFromToken = User.FindFirst("Id")?.Value;
+
+            // Comparer les IDs : si l'ID dans le jeton ne correspond pas à l'ID dans l'URL, refuser la modification
+            if (userIdFromToken != id.ToString())
+            {
+                return Unauthorized("Vous ne pouvez modifier que votre propre compte.");
+            }
+
+            // Appeler le service pour mettre à jour l'utilisateur
+            var updatedUser = await _userService.UpdateUserAsync(id, userRequestDto);
+
+           
+            if (updatedUser == null)
+            {
+                return NotFound($"Utilisateur avec l'ID {id} non trouvé.");
+            }
+
+            
+            return Ok(updatedUser);
+        }
+
+
+
+
     }
 }

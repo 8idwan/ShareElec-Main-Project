@@ -90,5 +90,32 @@ namespace SherElec_Back_end.Services
             
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
+
+        public async Task<UserRespenseDTO> UpdateUserAsync(int id, UserRequestDTO requestDto)
+        {
+            // Récupérer l'utilisateur existant par son ID
+            var user = await _userRepo.GetUserById(id);
+            if (user == null)
+            {
+                return null; // Utilisateur non trouvé
+            }
+
+            // Vérifier si l'email a été modifié
+            if (user.Email != requestDto.email)
+            {
+                throw new InvalidOperationException("Vous ne pouvez pas modifier votre email.");
+            }
+
+            // Mapper les autres champs du DTO vers l'utilisateur
+            _mapper.Map(requestDto, user);
+
+            // Mettre à jour l'utilisateur dans le repo
+            await _userRepo.UpdateUser(user);
+
+            // Mapper l'utilisateur mis à jour vers le DTO de réponse
+            return _mapper.Map<UserRespenseDTO>(user);
+        }
+
+
     }
 }

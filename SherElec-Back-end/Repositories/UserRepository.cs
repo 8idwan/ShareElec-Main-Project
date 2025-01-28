@@ -39,20 +39,10 @@ namespace ShareElec.Repositories
 
         public async Task UpdateUser(User user)
         {
-            // Vérifier si l'utilisateur existe
-            var existingUser = await _context.Users.FindAsync(user.ID);
-            if (existingUser == null)
-                return;
-
-            // Mise à jour des champs
-            existingUser.Prenom = user.Prenom;
-            existingUser.Nom = user.Nom;
-            existingUser.NumeroTelephone = user.NumeroTelephone;
-            existingUser.MotDePasse = BCrypt.Net.BCrypt.HashPassword(user.MotDePasse);
-
-            _context.Users.Update(existingUser);
+            _context.Users.Update(user);
             await _context.SaveChangesAsync();
         }
+
 
         public async Task DeleteUser(int id)
         {

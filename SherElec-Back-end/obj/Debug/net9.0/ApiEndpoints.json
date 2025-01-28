@@ -16,6 +16,53 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "SherElec_Back_end.Controllers.UserController",
+    "Method": "Login",
+    "RelativePath": "api/user/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Microsoft.AspNetCore.Identity.Data.LoginRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SherElec_Back_end.Controllers.UserController",
+    "Method": "UpdateUser",
+    "RelativePath": "api/user/maj/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "userRequestDto",
+        "Type": "SherElec_Back_end.DTO.UserRequestDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SherElec_Back_end.DTO.UserRespenseDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "SherElec_Back_end.Controllers.WeatherForecastController",
     "Method": "Get",
     "RelativePath": "WeatherForecast",
