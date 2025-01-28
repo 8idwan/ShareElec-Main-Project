@@ -10,5 +10,7 @@ namespace SherElec_Back_end.Repositories.Interfaces
         Task<List<Offre>> GetAllOffers();
 
         Task DeleteOffer(int id);
+
+        Task<IEnumerable<Offre>> GetOffresByUserIdAsync(int userId);
     }
 }

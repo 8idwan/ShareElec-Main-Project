@@ -48,6 +48,13 @@ namespace SherElec_Back_end.Repositories
             }
         }
 
+        public async Task<IEnumerable<Offre>> GetOffresByUserIdAsync(int userId)
+        {
+            return await _context.Offers
+                                 .Where(o => o.UserID == userId)
+                                 .ToListAsync(); // This will still return a List<Offre>, but it will be converted to IEnumerable<Offre>
+        }
+
 
     }
 }

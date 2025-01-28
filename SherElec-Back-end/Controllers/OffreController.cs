@@ -83,6 +83,19 @@ namespace SherElec_Back_end.Controllers
         }
 
 
+        [HttpGet("offres/user/{userId}")]
+        public async Task<ActionResult<IEnumerable<OffreResponseDTO>>> GetOffresByUserId(int userId)
+        {
+            var offres = await _offreService.GetOffresByUserIdAsync(userId);
+
+            if (!offres.Any())
+            {
+                return NotFound($"No offers found for User ID {userId}.");
+            }
+
+            return Ok(offres);
+        }
+
 
     }
 }
