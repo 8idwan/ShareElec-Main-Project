@@ -6,8 +6,9 @@ namespace SherElec_Back_end.Repositories
     {
         Task AddUser(User user);
         Task<User> GetUserById(int id);
-        Task<User> GetUserByEmail(string email);
-        
+         Task<User> GetUserByEmailAsync(string email);
+
+
         Task UpdateUser(User user);
         Task DeleteUser(int id);
     }

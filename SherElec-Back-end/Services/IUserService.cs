@@ -5,6 +5,11 @@ namespace SherElec_Back_end.Services
 {
     public interface IUserService
     {
-        public  Task ajoutCompteAsync(UserRequestDTO req);
+          Task ajoutCompteAsync(UserRequestDTO req);
+         string GenererToken(UserRespenseDTO utilisateur);
+         Task<UserRespenseDTO> AuthentifierUtilisateurAsync(string email, string motDePasse);
+
+
+
     }
 }

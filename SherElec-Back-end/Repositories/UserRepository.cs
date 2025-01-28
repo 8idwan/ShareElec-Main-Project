@@ -29,12 +29,13 @@ namespace ShareElec.Repositories
             return await _context.Users.FindAsync(id);
         }
 
-        public async Task<User> GetUserByEmail(string email)
+
+        public async Task<User> GetUserByEmailAsync(string email)
         {
-            return await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
+            return await _context.Users.FirstOrDefaultAsync(u => u.Email == email); // Recherche un utilisateur avec cet email
         }
 
-  
+
 
         public async Task UpdateUser(User user)
         {

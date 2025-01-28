@@ -1,4 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity.Data;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 using SherElec_Back_end.DTO;
 using SherElec_Back_end.Services;
 
@@ -40,5 +46,30 @@ namespace SherElec_Back_end.Controllers
                 return StatusCode(500, new { message = "Une erreur est survenue.", details = ex.Message });
             }
         }
+
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromBody] LoginRequest request)
+        {
+            try
+            {
+                var utilisateur = await _userService.AuthentifierUtilisateurAsync(request.Email, request.Password);
+                var token = _userService.GenererToken(utilisateur);
+                return Ok(new
+                {
+                    Token = token,
+                    Utilisateur = utilisateur // Retourne le DTO pour afficher ces information 
+                });
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                return Unauthorized(new { Message = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { Message = ex.Message });
+            }
+        }
+
+    
     }
 }
