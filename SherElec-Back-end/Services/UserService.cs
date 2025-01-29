@@ -116,6 +116,19 @@ namespace SherElec_Back_end.Services
             return _mapper.Map<UserRespenseDTO>(user);
         }
 
+        public async Task<UserRespenseDTO> GetUserInfo(int id)
+        {
+            var user = await _userRepo.GetUserById(id);
+
+            if (user == null)
+            {
+                return null; 
+            }
+
+            return _mapper.Map<UserRespenseDTO>(user);
+        }
+
+
         async Task IUserService.removeUser(int id)
         {
             var user = await _userRepo.GetUserById(id);
@@ -126,5 +139,8 @@ namespace SherElec_Back_end.Services
 
             await _userRepo.DeleteUser(id);
         }
+
+
+
     }
 }

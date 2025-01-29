@@ -69,6 +69,28 @@ namespace SherElec_Back_end.Controllers
                 return StatusCode(500, new { Message = ex.Message });
             }
         }
+        [Authorize]
+        [HttpGet("{id}")]
+        public async Task<ActionResult<UserRespenseDTO>> GetUserInfo(int id)
+        {
+            var userIdFromToken = User.FindFirst("Id")?.Value;
+
+            
+            if (userIdFromToken != id.ToString())
+            {
+                return Unauthorized("Vous ne pouvez recuperer que les informations de votre compte.");
+            }
+
+            var utilisateur = await _userService.GetUserInfo(id);
+
+            if (utilisateur == null)
+            {
+                return NotFound("Utilisateur non trouve.");
+            }
+
+            return Ok(utilisateur); 
+        }
+
 
         [Authorize]
         [HttpPut("maj/{id}")]

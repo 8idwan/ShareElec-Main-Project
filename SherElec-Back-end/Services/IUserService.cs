@@ -11,5 +11,7 @@ namespace SherElec_Back_end.Services
 
         Task<UserRespenseDTO> UpdateUserAsync(int id, UserRequestDTO requestDto);
         Task removeUser(int id);
+        Task<UserRespenseDTO> GetUserInfo(int id);
+
     }
 }

@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\badr4\\OneDrive\\Bureau\\ShareElec\\SherElec-Back-end\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{767E13BE-64EE-4CB5-8D77-F90BC347A7FD}|SherElec-Back-end.csproj|c:\\users\\badr4\\onedrive\\bureau\\shareelec\\sherelec-back-end\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{767E13BE-64EE-4CB5-8D77-F90BC347A7FD}|SherElec-Back-end.csproj|solutionrelative:controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{767E13BE-64EE-4CB5-8D77-F90BC347A7FD}|SherElec-Back-end.csproj|c:\\users\\badr4\\onedrive\\bureau\\shareelec\\sherelec-back-end\\sherelec-back-end.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{767E13BE-64EE-4CB5-8D77-F90BC347A7FD}|SherElec-Back-end.csproj|solutionrelative:sherelec-back-end.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{767E13BE-64EE-4CB5-8D77-F90BC347A7FD}|SherElec-Back-end.csproj|c:\\users\\badr4\\onedrive\\bureau\\shareelec\\sherelec-back-end\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{767E13BE-64EE-4CB5-8D77-F90BC347A7FD}|SherElec-Back-end.csproj|solutionrelative:services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{767E13BE-64EE-4CB5-8D77-F90BC347A7FD}|SherElec-Back-end.csproj|c:\\users\\badr4\\onedrive\\bureau\\shareelec\\sherelec-back-end\\services\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{767E13BE-64EE-4CB5-8D77-F90BC347A7FD}|SherElec-Back-end.csproj|solutionrelative:services\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{767E13BE-64EE-4CB5-8D77-F90BC347A7FD}|SherElec-Back-end.csproj|c:\\users\\badr4\\onedrive\\bureau\\shareelec\\sherelec-back-end\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{767E13BE-64EE-4CB5-8D77-F90BC347A7FD}|SherElec-Back-end.csproj|solutionrelative:controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{767E13BE-64EE-4CB5-8D77-F90BC347A7FD}|SherElec-Back-end.csproj|c:\\users\\badr4\\onedrive\\bureau\\shareelec\\sherelec-back-end\\mapper\\usermapping .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{767E13BE-64EE-4CB5-8D77-F90BC347A7FD}|SherElec-Back-end.csproj|solutionrelative:mapper\\usermapping .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{767E13BE-64EE-4CB5-8D77-F90BC347A7FD}|SherElec-Back-end.csproj|c:\\users\\badr4\\onedrive\\bureau\\shareelec\\sherelec-back-end\\repositories\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -27,16 +27,16 @@
       "RelativeMoniker": "D:0:0:{767E13BE-64EE-4CB5-8D77-F90BC347A7FD}|SherElec-Back-end.csproj|solutionrelative:repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{767E13BE-64EE-4CB5-8D77-F90BC347A7FD}|SherElec-Back-end.csproj|c:\\users\\badr4\\onedrive\\bureau\\shareelec\\sherelec-back-end\\sherelec-back-end.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{767E13BE-64EE-4CB5-8D77-F90BC347A7FD}|SherElec-Back-end.csproj|solutionrelative:sherelec-back-end.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{767E13BE-64EE-4CB5-8D77-F90BC347A7FD}|SherElec-Back-end.csproj|c:\\users\\badr4\\onedrive\\bureau\\shareelec\\sherelec-back-end\\migrations\\20250128153801_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{767E13BE-64EE-4CB5-8D77-F90BC347A7FD}|SherElec-Back-end.csproj|solutionrelative:migrations\\20250128153801_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{767E13BE-64EE-4CB5-8D77-F90BC347A7FD}|SherElec-Back-end.csproj|c:\\users\\badr4\\onedrive\\bureau\\shareelec\\sherelec-back-end\\migrations\\applicationdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{767E13BE-64EE-4CB5-8D77-F90BC347A7FD}|SherElec-Back-end.csproj|solutionrelative:migrations\\applicationdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{767E13BE-64EE-4CB5-8D77-F90BC347A7FD}|SherElec-Back-end.csproj|c:\\users\\badr4\\onedrive\\bureau\\shareelec\\sherelec-back-end\\mapper\\usermapping .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{767E13BE-64EE-4CB5-8D77-F90BC347A7FD}|SherElec-Back-end.csproj|solutionrelative:mapper\\usermapping .cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{767E13BE-64EE-4CB5-8D77-F90BC347A7FD}|SherElec-Back-end.csproj|c:\\users\\badr4\\onedrive\\bureau\\shareelec\\sherelec-back-end\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -78,19 +78,15 @@
       "DocumentGroups": [
         {
           "DockedWidth": 172,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 7,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:2:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:1:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "ApplicationDbContextModelSnapshot.cs",
               "DocumentMoniker": "C:\\Users\\badr4\\OneDrive\\Bureau\\ShareElec\\SherElec-Back-end\\Migrations\\ApplicationDbContextModelSnapshot.cs",
               "RelativeDocumentMoniker": "Migrations\\ApplicationDbContextModelSnapshot.cs",
@@ -98,8 +94,7 @@
               "RelativeToolTip": "Migrations\\ApplicationDbContextModelSnapshot.cs",
               "ViewState": "AgIAABkAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-28T17:22:05.104Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-28T17:22:05.104Z"
             },
             {
               "$type": "Document",
@@ -115,7 +110,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "20250128153801_InitialCreate.cs",
               "DocumentMoniker": "C:\\Users\\badr4\\OneDrive\\Bureau\\ShareElec\\SherElec-Back-end\\Migrations\\20250128153801_InitialCreate.cs",
               "RelativeDocumentMoniker": "Migrations\\20250128153801_InitialCreate.cs",
@@ -123,8 +118,7 @@
               "RelativeToolTip": "Migrations\\20250128153801_InitialCreate.cs",
               "ViewState": "AgIAABkAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-28T15:38:01.577Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-28T15:38:01.577Z"
             },
             {
               "$type": "Document",
@@ -140,13 +134,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "UserController.cs",
               "DocumentMoniker": "C:\\Users\\badr4\\OneDrive\\Bureau\\ShareElec\\SherElec-Back-end\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "Controllers\\UserController.cs",
               "ToolTip": "C:\\Users\\badr4\\OneDrive\\Bureau\\ShareElec\\SherElec-Back-end\\Controllers\\UserController.cs",
               "RelativeToolTip": "Controllers\\UserController.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAADsAAABSAAAAAAAAAA==",
+              "ViewState": "AgIAAEcAAAAAAAAAAAAgwFMAAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-28T15:28:21.329Z",
               "EditorCaption": ""
@@ -165,26 +159,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "UserService.cs",
               "DocumentMoniker": "C:\\Users\\badr4\\OneDrive\\Bureau\\ShareElec\\SherElec-Back-end\\Services\\UserService.cs",
               "RelativeDocumentMoniker": "Services\\UserService.cs",
               "ToolTip": "C:\\Users\\badr4\\OneDrive\\Bureau\\ShareElec\\SherElec-Back-end\\Services\\UserService.cs",
               "RelativeToolTip": "Services\\UserService.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAAA8AAAApAAAAAAAAAA==",
+              "ViewState": "AgIAAF0AAAAAAAAAAAA7wHgAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-28T14:54:25.614Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "IUserService.cs",
               "DocumentMoniker": "C:\\Users\\badr4\\OneDrive\\Bureau\\ShareElec\\SherElec-Back-end\\Services\\IUserService.cs",
               "RelativeDocumentMoniker": "Services\\IUserService.cs",
               "ToolTip": "C:\\Users\\badr4\\OneDrive\\Bureau\\ShareElec\\SherElec-Back-end\\Services\\IUserService.cs",
               "RelativeToolTip": "Services\\IUserService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-28T10:30:45.947Z",
               "EditorCaption": ""
@@ -203,13 +197,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 3,
               "Title": "UserMapping .cs",
               "DocumentMoniker": "C:\\Users\\badr4\\OneDrive\\Bureau\\ShareElec\\SherElec-Back-end\\Mapper\\UserMapping .cs",
               "RelativeDocumentMoniker": "Mapper\\UserMapping .cs",
               "ToolTip": "C:\\Users\\badr4\\OneDrive\\Bureau\\ShareElec\\SherElec-Back-end\\Mapper\\UserMapping .cs",
               "RelativeToolTip": "Mapper\\UserMapping .cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-27T22:32:55.234Z",
               "EditorCaption": ""
@@ -224,8 +218,7 @@
               "RelativeToolTip": "Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAABKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-27T22:28:59.309Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-27T22:28:59.309Z"
             },
             {
               "$type": "Document",
@@ -247,7 +240,7 @@
               "RelativeDocumentMoniker": "Repositories\\UserRepository.cs",
               "ToolTip": "C:\\Users\\badr4\\OneDrive\\Bureau\\ShareElec\\SherElec-Back-end\\Repositories\\UserRepository.cs",
               "RelativeToolTip": "Repositories\\UserRepository.cs",
-              "ViewState": "AgIAACoAAAAAAAAAAAAowBAAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAACIAAAAAAAAAAAAkwC4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-27T22:20:08.332Z",
               "EditorCaption": ""
@@ -260,7 +253,7 @@
               "RelativeDocumentMoniker": "Repositories\\IUserRepository.cs",
               "ToolTip": "C:\\Users\\badr4\\OneDrive\\Bureau\\ShareElec\\SherElec-Back-end\\Repositories\\IUserRepository.cs",
               "RelativeToolTip": "Repositories\\IUserRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-27T22:18:08.791Z",
               "EditorCaption": ""
@@ -291,7 +284,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "SherElec-Back-end.csproj",
               "DocumentMoniker": "C:\\Users\\badr4\\OneDrive\\Bureau\\ShareElec\\SherElec-Back-end\\SherElec-Back-end.csproj",
               "RelativeDocumentMoniker": "SherElec-Back-end.csproj",
