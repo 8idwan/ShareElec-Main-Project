@@ -116,6 +116,15 @@ namespace SherElec_Back_end.Services
             return _mapper.Map<UserRespenseDTO>(user);
         }
 
+        async Task IUserService.removeUser(int id)
+        {
+            var user = await _userRepo.GetUserById(id);
+            if (user == null) {
+                Console.WriteLine("Cet ID n'existe plus .");
+                return;
+            }
 
+            await _userRepo.DeleteUser(id);
+        }
     }
 }

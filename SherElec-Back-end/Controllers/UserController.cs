@@ -26,7 +26,7 @@ namespace SherElec_Back_end.Controllers
         {
             if (userRequestDTO == null)
             {
-                return BadRequest("Les données de l'utilisateur sont invalides.");
+                return BadRequest("Les donnees de l'utilisateur sont incorrectes.");
             }
 
             try
@@ -34,7 +34,7 @@ namespace SherElec_Back_end.Controllers
                 await _userService.ajoutCompteAsync(userRequestDTO);
                 return CreatedAtAction(
                     nameof(ajoutCompte),
-                    new { message = "Utilisateur créé avec succès" }
+                    new { message = "Utilisateur créé avec succes" }
                 );
             }
             catch (InvalidOperationException ex)
@@ -43,7 +43,7 @@ namespace SherElec_Back_end.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new { message = "Une erreur est survenue.", details = ex.Message });
+                return StatusCode(500, new { message = "Une erreur :", details = ex.Message });
             }
         }
 
@@ -76,7 +76,7 @@ namespace SherElec_Back_end.Controllers
         {
             if (userRequestDto == null)
             {
-                return BadRequest("Les données de l'utilisateur sont invalides.");
+                return BadRequest("Les donnees de l'utilisateur sont incorrectes.");
             }
 
             // Récupérer l'ID utilisateur à partir du jeton JWT
@@ -85,16 +85,16 @@ namespace SherElec_Back_end.Controllers
             // Comparer les IDs : si l'ID dans le jeton ne correspond pas à l'ID dans l'URL, refuser la modification
             if (userIdFromToken != id.ToString())
             {
-                return Unauthorized("Vous ne pouvez modifier que votre propre compte.");
+                return Unauthorized("Vous  pouvez modifier que votre  compte.");
             }
 
-            // Appeler le service pour mettre à jour l'utilisateur
+            
             var updatedUser = await _userService.UpdateUserAsync(id, userRequestDto);
 
            
             if (updatedUser == null)
             {
-                return NotFound($"Utilisateur avec l'ID {id} non trouvé.");
+                return NotFound($"utilisateur avec l'ID {id} non trouve.");
             }
 
             
@@ -102,6 +102,23 @@ namespace SherElec_Back_end.Controllers
         }
 
 
+        [Authorize]
+        [HttpDelete("del/{id}")]
+        public async Task<ActionResult> RemoveUser(int id)
+        {
+           var UserIdFromToken=User.FindFirst("Id")?.Value;
+            if (UserIdFromToken != id.ToString()) { 
+                return Unauthorized("vous pouvez pas summprimer un compte qui pas le votre");
+            }
+
+
+           var deletedUser =  _userService.removeUser(id);
+            if (deletedUser == null)
+            {
+                return NotFound($"utilisateur avec l'ID {id} non trouve.");
+            }
+            return Ok();
+        }
 
 
     }

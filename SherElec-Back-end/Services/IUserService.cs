@@ -10,6 +10,6 @@ namespace SherElec_Back_end.Services
          Task<UserRespenseDTO> AuthentifierUtilisateurAsync(string email, string motDePasse);
 
         Task<UserRespenseDTO> UpdateUserAsync(int id, UserRequestDTO requestDto);
-
+        Task removeUser(int id);
     }
 }
