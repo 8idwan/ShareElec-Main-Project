@@ -10,22 +10,99 @@ using SherElec_Back_end.Repositories;
 using SherElec_Back_end.Model;
 using ShareElec.Repositories;
 using Microsoft.EntityFrameworkCore;
+using System.Net.Mail;
+using System.Net;
+using SherElec_Back_end.Models;
 
 namespace SherElec_Back_end.Services
 {
-    public class UserService:IUserService
+    public class UserService : IUserService
     {
         private readonly IUserRepository _userRepo;
         private readonly IMapper _mapper;
         private readonly ILogger<UserService> _logger;
         private readonly ApplicationDbContext _context;
+        private readonly IConfiguration _configuration;
 
-        public UserService(IUserRepository userRepo, IMapper mapper, ILogger<UserService> logger, ApplicationDbContext context)
+
+        public UserService(IUserRepository userRepo, IMapper mapper, ILogger<UserService> logger, ApplicationDbContext context, IConfiguration configuration)
         {
             _userRepo = userRepo;
             _mapper = mapper;
             _logger = logger;
             _context = context;
+            _configuration = configuration;
+        }
+
+        private string GenerateVerificationCode()
+        {
+            Random random = new Random();
+            return random.Next(1000, 9999).ToString();
+        }
+        private async Task SendVerificationEmail(string email, string code)
+        {
+            var smtpSettings = _configuration.GetSection("SmtpSettings");
+
+            using var client = new SmtpClient(smtpSettings["Server"])
+            {
+                Port = int.Parse(smtpSettings["Port"]),
+                Credentials = new NetworkCredential(smtpSettings["SenderEmail"], smtpSettings["SenderPassword"]),
+                EnableSsl = bool.Parse(smtpSettings["EnableSsl"])
+            };
+
+            var mailMessage = new MailMessage
+            {
+                From = new MailAddress(smtpSettings["SenderEmail"]),
+                Subject = "Code de vérification",
+                Body = $"Votre code de vérification est: {code}",
+                IsBodyHtml = false
+            };
+            mailMessage.To.Add(email);
+
+            await client.SendMailAsync(mailMessage);
+        }
+
+        public async Task InitiateEmailVerification(UserRequestDTO req)
+        {
+            var existingUser = await _userRepo.GetUserByEmailAsync(req.email);
+            if (existingUser != null)
+            {
+                throw new InvalidOperationException("Cet email est déjà utilisé.");
+            }
+
+            string verificationCode = GenerateVerificationCode();
+
+            var emailVerifier = new EmailVerifier
+            {
+                Email = req.email,
+                VerificationCode = verificationCode,
+                CreatedAt = DateTime.UtcNow
+            };
+
+            await _userRepo.AddEmailVerification(emailVerifier);
+            await SendVerificationEmail(req.email, verificationCode);
+        }
+
+        public async Task<bool> VerifyEmailAndCreateUser(string email, string code, UserRequestDTO req)
+        {
+            var verification = await _userRepo.GetEmailVerification(email, code);
+
+            if (verification == null)
+            {
+                return false;
+            }
+
+            // Vérifier si le code n'a pas expiré (24 heures)
+            if (DateTime.UtcNow.Subtract(verification.CreatedAt).TotalHours > 24)
+            {
+                return false;
+            }
+
+            // Créer l'utilisateur une fois vérifié
+            var user = _mapper.Map<User>(req);
+            await _userRepo.AddUser(user);
+
+            return true;
         }
 
 
@@ -38,9 +115,9 @@ namespace SherElec_Back_end.Services
                 throw new InvalidOperationException("Cet email est déjà utilisé.");
             }
 
-            var user =_mapper.Map<User>(req);
+            var user = _mapper.Map<User>(req);
 
-          
+
             await _userRepo.AddUser(user);
         }
 
@@ -64,15 +141,15 @@ namespace SherElec_Back_end.Services
         }
         public string GenererToken(UserRespenseDTO utilisateur)
         {
-        
+
             var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("VotreClefSecreteTresLongueEtComplexe123!@#$%^&*"));
 
             // Définir les informations du JWT (claims)
             var claims = new[]
             {
-            new Claim(JwtRegisteredClaimNames.Sub, utilisateur.email),  
-            new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),  
-            new Claim("Id", utilisateur.ID.ToString())  
+            new Claim(JwtRegisteredClaimNames.Sub, utilisateur.email),
+            new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+            new Claim("Id", utilisateur.ID.ToString())
         };
 
             // Créer la signature
@@ -87,7 +164,7 @@ namespace SherElec_Back_end.Services
                 signingCredentials: signingCredentials  // Signature du token
             );
 
-            
+
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
@@ -122,7 +199,7 @@ namespace SherElec_Back_end.Services
 
             if (user == null)
             {
-                return null; 
+                return null;
             }
 
             return _mapper.Map<UserRespenseDTO>(user);
@@ -132,7 +209,8 @@ namespace SherElec_Back_end.Services
         async Task IUserService.removeUser(int id)
         {
             var user = await _userRepo.GetUserById(id);
-            if (user == null) {
+            if (user == null)
+            {
                 Console.WriteLine("Cet ID n'existe plus .");
                 return;
             }

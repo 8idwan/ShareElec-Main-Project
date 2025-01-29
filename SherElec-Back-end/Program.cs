@@ -7,6 +7,7 @@ using SherElec_Back_end.Mapper; // Assure-toi que ce namespace est correct
 using SherElec_Back_end.Model;
 using SherElec_Back_end.Repositories;
 using SherElec_Back_end.Services; // Assure-toi que ce namespace est correct pour les entités
+
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);

@@ -1,5 +1,6 @@
 ﻿using SherElec_Back_end.DTO;
 using SherElec_Back_end.Model;
+using SherElec_Back_end.Models;
 
 namespace SherElec_Back_end.Repositories
 {
@@ -12,5 +13,10 @@ namespace SherElec_Back_end.Repositories
 
         Task UpdateUser(User user);
         Task DeleteUser(int id);
+        Task AddEmailVerification(EmailVerifier emailVerifier);
+
+        Task<EmailVerifier> GetEmailVerification(string email, string code);
+
+
     }
 }

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using SherElec_Back_end.DTO;
+using SherElec_Back_end.DTOs;
 using SherElec_Back_end.Services;
 
 namespace SherElec_Back_end.Controllers
@@ -21,21 +22,18 @@ namespace SherElec_Back_end.Controllers
             _userService = userService;
         }
 
-        [HttpPost("add")]
-        public async Task<IActionResult> ajoutCompte([FromBody] UserRequestDTO userRequestDTO)
+        [HttpPost("sign-in")]
+        public async Task<IActionResult> InitiateVerification([FromBody] UserRequestDTO userRequestDTO)
         {
             if (userRequestDTO == null)
             {
-                return BadRequest("Les donnees de l'utilisateur sont incorrectes.");
+                return BadRequest("Les données de l'utilisateur sont incorrectes.");
             }
 
             try
             {
-                await _userService.ajoutCompteAsync(userRequestDTO);
-                return CreatedAtAction(
-                    nameof(ajoutCompte),
-                    new { message = "Utilisateur créé avec succes" }
-                );
+                await _userService.InitiateEmailVerification(userRequestDTO);
+                return Ok(new { message = "Un code de vérification a été envoyé à votre email." });
             }
             catch (InvalidOperationException ex)
             {
@@ -43,7 +41,36 @@ namespace SherElec_Back_end.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new { message = "Une erreur :", details = ex.Message });
+                return StatusCode(500, new { message = "Une erreur est survenue", details = ex.Message });
+            }
+        }
+
+        [HttpPost("veriferEmail")]
+        public async Task<IActionResult> VerifyEmail([FromBody] VerificationRequest request)
+        {
+            if (request == null)
+            {
+                return BadRequest("Les données de vérification sont incorrectes.");
+            }
+
+            try
+            {
+                bool isVerified = await _userService.VerifyEmailAndCreateUser(
+                    request.Email,
+                    request.Code,
+                    request.UserData
+                );
+
+                if (!isVerified)
+                {
+                    return BadRequest("Code de vérification invalide ou expiré.");
+                }
+
+                return Ok(new { message = "Compte créé avec succès." });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "Une erreur est survenue", details = ex.Message });
             }
         }
 

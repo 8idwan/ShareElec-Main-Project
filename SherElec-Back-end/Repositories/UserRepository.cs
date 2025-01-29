@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using SherElec_Back_end.DTO;
 using SherElec_Back_end.Model;
+using SherElec_Back_end.Models;
 using SherElec_Back_end.Repositories;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -55,6 +56,23 @@ namespace ShareElec.Repositories
             }
         }
 
-      
+        public async Task AddEmailVerification(EmailVerifier emailVerifier)
+        {
+            await _context.EmailVerifierTable.AddAsync(emailVerifier);
+            await _context.SaveChangesAsync();
+        }
+
+
+            public async Task<EmailVerifier> GetEmailVerification(string email, string code)
+        {
+            return await _context.EmailVerifierTable
+                .Where(e => e.Email == email && e.VerificationCode == code)
+                .OrderByDescending(e => e.CreatedAt)
+                .FirstOrDefaultAsync();
+        }
+
+
+
+
     }
 }
