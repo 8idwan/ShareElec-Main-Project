@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc;
 using SherElec_Back_end.DTOs.Request;
 using SherElec_Back_end.DTOs.Response;
 using SherElec_Back_end.Services.Interfaces;
@@ -7,7 +8,7 @@ namespace SherElec_Back_end.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class OffreController : Controller
+   public class OffreController : Controller
     {
 
         private readonly IOffreService _offreService;

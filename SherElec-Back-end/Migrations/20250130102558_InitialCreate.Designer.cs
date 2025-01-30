@@ -12,8 +12,8 @@ using SherElec_Back_end.Data;
 namespace SherElec_Back_end.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250127190148_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20250130102558_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

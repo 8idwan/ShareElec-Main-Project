@@ -9,7 +9,18 @@ using SherElec_Back_end.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Ajouter la configuration CORS
+/*builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAngularApp",
+        policy =>
+        {
+            policy
+                .AllowAnyOrigin()
+                .AllowAnyHeader()
+                .AllowAnyMethod();
+        });
+});*/
 
 // Ajouter le DbContext avec la chaine de connexion
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
