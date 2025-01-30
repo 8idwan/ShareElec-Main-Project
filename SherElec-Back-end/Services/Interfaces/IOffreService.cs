@@ -6,11 +6,11 @@ namespace SherElec_Back_end.Services.Interfaces
 {
     public interface IOffreService
     {
-        Task<OffreResponseDTO> CreateOfferAsync(OffreRequestDTO requestDto);
-        Task<OffreResponseDTO> GetOfferByIdAsync(int id);
+        Task<MesOffreResponseDTO> CreateOfferAsync(OffreRequestDTO requestDto);
+        Task<MesOffreResponseDTO> GetOfferByIdAsync(int id);
         Task<IEnumerable<OffreResponseDTO>> GetAllOffersAsync();
-        Task<OffreResponseDTO> UpdateOfferAsync(int id, OffreRequestDTO requestDto);
+        Task<MesOffreResponseDTO> UpdateOfferAsync(int id, OffreRequestDTO requestDto);
         Task<bool> DeleteOfferAsync(int id);
-        Task<IEnumerable<OffreResponseDTO>> GetOffresByUserIdAsync(int userId);
+        Task<IEnumerable<MesOffreResponseDTO>> GetOffresByUserIdAsync(int userId);
     }
 }

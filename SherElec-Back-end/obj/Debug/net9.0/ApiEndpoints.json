@@ -15,7 +15,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "SherElec_Back_end.DTOs.Response.OffreResponseDTO",
+        "Type": "SherElec_Back_end.DTOs.Response.MesOffreResponseDTO",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -87,7 +87,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "SherElec_Back_end.DTOs.Response.OffreResponseDTO",
+        "Type": "SherElec_Back_end.DTOs.Response.MesOffreResponseDTO",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -113,7 +113,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[SherElec_Back_end.DTOs.Response.OffreResponseDTO, SherElec-Back-end, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[SherElec_Back_end.DTOs.Response.MesOffreResponseDTO, SherElec-Back-end, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -144,7 +144,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "SherElec_Back_end.DTOs.Response.OffreResponseDTO",
+        "Type": "SherElec_Back_end.DTOs.Response.MesOffreResponseDTO",
         "MediaTypes": [
           "text/plain",
           "application/json",

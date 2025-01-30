@@ -20,7 +20,7 @@ namespace SherElec_Back_end.Controllers
 
         // POST api/offre
         [HttpPost("add")]
-        public async Task<ActionResult<OffreResponseDTO>> CreateOffer([FromBody] OffreRequestDTO offerRequestDto)
+        public async Task<ActionResult<MesOffreResponseDTO>> CreateOffer([FromBody] OffreRequestDTO offerRequestDto)
         {
             if (offerRequestDto == null)
             {
@@ -41,7 +41,7 @@ namespace SherElec_Back_end.Controllers
 
         // GET api/offre/{id}
         [HttpGet("offres/{id}")]
-        public async Task<ActionResult<OffreResponseDTO>> GetOfferById(int id)
+        public async Task<ActionResult<MesOffreResponseDTO>> GetOfferById(int id)
         {
             var offre = await _offreService.GetOfferByIdAsync(id);
             if (offre == null)
@@ -53,7 +53,7 @@ namespace SherElec_Back_end.Controllers
 
         // PUT api/offre/{id}
         [HttpPut("update/{id}")]
-        public async Task<ActionResult<OffreResponseDTO>> UpdateOffre(int id, [FromBody] OffreRequestDTO offerRequestDto)
+        public async Task<ActionResult<MesOffreResponseDTO>> UpdateOffre(int id, [FromBody] OffreRequestDTO offerRequestDto)
         {
             if (offerRequestDto == null)
             {
@@ -84,18 +84,24 @@ namespace SherElec_Back_end.Controllers
 
 
         [HttpGet("offres/user/{userId}")]
-        public async Task<ActionResult<IEnumerable<OffreResponseDTO>>> GetOffresByUserId(int userId)
+        public async Task<ActionResult<IEnumerable<MesOffreResponseDTO>>> GetOffresByUserId(int userId)
         {
-            var offres = await _offreService.GetOffresByUserIdAsync(userId);
-
-            if (!offres.Any())
+            try
             {
-                return NotFound($"No offers found for User ID {userId}.");
+                var offres = await _offreService.GetOffresByUserIdAsync(userId);
+
+                if (offres == null || !offres.Any())
+                {
+                    return NotFound($"Aucune offre trouvée pour l'utilisateur {userId}.");
+                }
+
+                return Ok(offres);
             }
-
-            return Ok(offres);
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Erreur interne du serveur : {ex.Message}");
+            }
         }
-
 
     }
 }

@@ -19,19 +19,19 @@ namespace SherElec_Back_end.Services
             _mapper = mapper;
         }
 
-        public async Task<OffreResponseDTO> CreateOfferAsync(OffreRequestDTO requestDto)
+        public async Task<MesOffreResponseDTO> CreateOfferAsync(OffreRequestDTO requestDto)
         {
             var offre = _mapper.Map<Offre>(requestDto);  // Mapper le DTO request en entité Offre
             await _offreRepository.CreateOffre(offre);
-            return _mapper.Map<OffreResponseDTO>(offre);  // Mapper l'entité Offre en DTO response
+            return _mapper.Map<MesOffreResponseDTO>(offre);  // Mapper l'entité Offre en DTO response
         }
 
-        public async Task<OffreResponseDTO> GetOfferByIdAsync(int id)
+        public async Task<MesOffreResponseDTO> GetOfferByIdAsync(int id)
         {
             var offre = await _offreRepository.GetOfferById(id);
             if (offre == null)
                 return null;
-            return _mapper.Map<OffreResponseDTO>(offre);
+            return _mapper.Map<MesOffreResponseDTO>(offre);
         }
         public async Task<IEnumerable<OffreResponseDTO>> GetAllOffersAsync()
         {
@@ -39,7 +39,7 @@ namespace SherElec_Back_end.Services
             return _mapper.Map<IEnumerable<OffreResponseDTO>>(offres);
         }
 
-        public async Task<OffreResponseDTO> UpdateOfferAsync(int id, OffreRequestDTO requestDto)
+        public async Task<MesOffreResponseDTO> UpdateOfferAsync(int id, OffreRequestDTO requestDto)
         {
             var offre = await _offreRepository.GetOfferById(id);
             if (offre == null)
@@ -47,7 +47,7 @@ namespace SherElec_Back_end.Services
 
             _mapper.Map(requestDto, offre);
             await _offreRepository.UpdateOffer(offre);
-            return _mapper.Map<OffreResponseDTO>(offre);
+            return _mapper.Map<MesOffreResponseDTO>(offre);
         }
 
         public async Task<bool> DeleteOfferAsync(int id)
@@ -59,13 +59,13 @@ namespace SherElec_Back_end.Services
             return true;
         }
 
-        public async Task<IEnumerable<OffreResponseDTO>> GetOffresByUserIdAsync(int userId)
+        public async Task<IEnumerable<MesOffreResponseDTO>> GetOffresByUserIdAsync(int userId)
         {
             // Get offers by UserId from repository
             var offres = await _offreRepository.GetOffresByUserIdAsync(userId);
 
             // Map the results to DTOs
-            return _mapper.Map<IEnumerable<OffreResponseDTO>>(offres);
+            return _mapper.Map<IEnumerable<MesOffreResponseDTO>>(offres);
         }
 
     }
