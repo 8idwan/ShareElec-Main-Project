@@ -57,5 +57,15 @@ namespace SherElec_Back_end.Services
             await _offreRepository.DeleteOffer(id);
             return true;
         }
+
+
+        public async Task<IEnumerable<MesOffreResponseDTO>> GetOffresByUserIdAsync(int userId)
+        {
+            // Get offers by UserId from repository
+            var offres = await _offreRepository.GetOffresByUserIdAsync(userId);
+
+            // Map the results to DTOs
+            return _mapper.Map<IEnumerable<MesOffreResponseDTO>>(offres);
+        }
     }
 }

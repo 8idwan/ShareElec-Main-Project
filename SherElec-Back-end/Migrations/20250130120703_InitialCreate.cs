@@ -21,7 +21,8 @@ namespace SherElec_Back_end.Migrations
                     Prenom = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     NumeroTelephone = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    MotDePasse = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    MotDePasse = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Balance = table.Column<double>(type: "float", nullable: false)
                 },
                 constraints: table =>
                 {

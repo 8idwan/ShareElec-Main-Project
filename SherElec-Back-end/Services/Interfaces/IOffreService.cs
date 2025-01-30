@@ -10,5 +10,8 @@ namespace SherElec_Back_end.Services.Interfaces
         Task<IEnumerable<OffreResponseDTO>> GetAllOffersAsync();
         Task<OffreResponseDTO> UpdateOfferAsync(int id, OffreRequestDTO requestDto);
         Task<bool> DeleteOfferAsync(int id);
+
+        Task<IEnumerable<MesOffreResponseDTO>> GetOffresByUserIdAsync(int userId);
+
     }
 }

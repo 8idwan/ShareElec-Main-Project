@@ -40,6 +40,7 @@ namespace SherElec_Back_end.Controllers
             return Ok(offres);
         }
 
+
         // GET api/offre/{id}
         [HttpGet("offres/{id}")]
         public async Task<ActionResult<OffreResponseDTO>> GetOfferById(int id)
@@ -81,6 +82,26 @@ namespace SherElec_Back_end.Controllers
                 return success;
             }
             return success;
+        }
+
+        [HttpGet("offres/user/{userId}")]
+        public async Task<ActionResult<IEnumerable<MesOffreResponseDTO>>> GetOffresByUserId(int userId)
+        {
+            try
+            {
+                var offres = await _offreService.GetOffresByUserIdAsync(userId);
+
+                if (offres == null || !offres.Any())
+                {
+                    return NotFound($"Aucune offre trouvée pour l'utilisateur {userId}.");
+                }
+
+                return Ok(offres);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Erreur interne du serveur : {ex.Message}");
+            }
         }
 
 

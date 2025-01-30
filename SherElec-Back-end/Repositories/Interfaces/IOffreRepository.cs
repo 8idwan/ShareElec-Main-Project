@@ -6,6 +6,8 @@ namespace SherElec_Back_end.Repositories.Interfaces
     {
         Task CreateOffre(Offre offre);
         Task<Offre> GetOfferById(int id);
+
+        Task<IEnumerable<Offre>> GetOffresByUserIdAsync(int userId);
         Task UpdateOffer(Offre offre);
         Task<IEnumerable<Offre>> GetAllOffers();
 
