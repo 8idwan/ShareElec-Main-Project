@@ -57,8 +57,7 @@ namespace SherElec_Back_end.Controllers
             {
                 bool isVerified = await _userService.VerifyEmailAndCreateUser(
                     request.Email,
-                    request.Code,
-                    request.UserData
+                    request.Code
                 );
 
                 if (!isVerified)

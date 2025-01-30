@@ -13,7 +13,7 @@ namespace SherElec_Back_end.Services
         Task removeUser(int id);
         Task<UserRespenseDTO> GetUserInfo(int id);
         Task InitiateEmailVerification(UserRequestDTO req);
-        Task<bool> VerifyEmailAndCreateUser(string email, string code, UserRequestDTO req);
+        Task<bool> VerifyEmailAndCreateUser(string email, string code);
 
     }
 }

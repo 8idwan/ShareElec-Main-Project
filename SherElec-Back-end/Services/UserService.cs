@@ -54,7 +54,8 @@ namespace SherElec_Back_end.Services
             {
                 From = new MailAddress(smtpSettings["SenderEmail"]),
                 Subject = "Code de vérification",
-                Body = $"Votre code de vérification est: {code}",
+                Body = $"Votre code de vérification est: {code} \n \n ne pas rependre a ce message ." +
+                $" \n \n Merci pour Ton inscription a notre site ",
                 IsBodyHtml = false
             };
             mailMessage.To.Add(email);
@@ -76,14 +77,19 @@ namespace SherElec_Back_end.Services
             {
                 Email = req.email,
                 VerificationCode = verificationCode,
-                CreatedAt = DateTime.UtcNow
+                CreatedAt = DateTime.UtcNow,
+                
+                Nom = req.nom,
+                Prenom = req.prenom,
+                MotDePasse = req.motDePasse,
+                NumeroTelephone =req.numeroTelephone
             };
 
             await _userRepo.AddEmailVerification(emailVerifier);
             await SendVerificationEmail(req.email, verificationCode);
         }
 
-        public async Task<bool> VerifyEmailAndCreateUser(string email, string code, UserRequestDTO req)
+        public async Task<bool> VerifyEmailAndCreateUser(string email, string code)
         {
             var verification = await _userRepo.GetEmailVerification(email, code);
 
@@ -92,14 +98,21 @@ namespace SherElec_Back_end.Services
                 return false;
             }
 
-            // Vérifier si le code n'a pas expiré (24 heures)
             if (DateTime.UtcNow.Subtract(verification.CreatedAt).TotalHours > 24)
             {
                 return false;
             }
 
-            // Créer l'utilisateur une fois vérifié
-            var user = _mapper.Map<User>(req);
+            // Créer l'utilisateur avec les données stockées
+            var user = new User
+            {
+                Email = verification.Email,
+                Nom = verification.Nom,
+                Prenom = verification.Prenom,
+                MotDePasse = verification.MotDePasse,
+                NumeroTelephone=verification.NumeroTelephone
+            };
+
             await _userRepo.AddUser(user);
 
             return true;

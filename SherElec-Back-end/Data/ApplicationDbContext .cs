@@ -9,14 +9,7 @@ public class ApplicationDbContext : DbContext
 
     public DbSet<User> Users { get; set; }
     public DbSet<EmailVerifier> EmailVerifierTable { get; set; }
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        if (!optionsBuilder.IsConfigured)
-        {
-            optionsBuilder.UseSqlServer("your_connection_string", options =>
-                options.EnableRetryOnFailure());
-        }
-    }
+ 
 
 
 }
