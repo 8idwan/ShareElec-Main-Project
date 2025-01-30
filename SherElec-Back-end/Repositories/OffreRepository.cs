@@ -25,9 +25,12 @@ namespace SherElec_Back_end.Repositories
             return await _context.Offers.FindAsync(id);
         }
 
-        public async Task<List<Offre>> GetAllOffers()
+        public async Task<IEnumerable<Offre>> GetAllOffers()
         {
-            return await _context.Offers.ToListAsync();
+            //return await _context.Offers.ToListAsync();
+            return await _context.Offers
+               .Include(o => o.User)  // Inclure l'utilisateur
+               .ToListAsync();
         }
 
 

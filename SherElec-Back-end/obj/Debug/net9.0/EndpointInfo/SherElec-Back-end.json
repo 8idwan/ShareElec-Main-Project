@@ -272,10 +272,6 @@
             "type": "integer",
             "format": "int32"
           },
-          "userId": {
-            "type": "integer",
-            "format": "int32"
-          },
           "quantite": {
             "type": "number",
             "format": "double"
@@ -297,6 +293,27 @@
           "date": {
             "type": "string",
             "format": "date"
+          },
+          "user": {
+            "$ref": "#/components/schemas/UserResponseDTO"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserResponseDTO": {
+        "type": "object",
+        "properties": {
+          "idUser": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nom": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
