@@ -35,7 +35,7 @@ namespace SherElec_Back_end.Services
         public async Task<IEnumerable<OffreResponseDTO>> GetAllOffersAsync()
         {
             var offres = await _offreRepository.GetAllOffers();
-            return _mapper.Map<IEnumerable<OffreResponseDTO>>(offres);
+            return _mapper.Map<IEnumerable<OffreResponseDTO>>(offres).Reverse();
         }
 
         public async Task<OffreResponseDTO> UpdateOfferAsync(int id, OffreRequestDTO requestDto)
@@ -65,7 +65,7 @@ namespace SherElec_Back_end.Services
             var offres = await _offreRepository.GetOffresByUserIdAsync(userId);
 
             // Map the results to DTOs
-            return _mapper.Map<IEnumerable<MesOffreResponseDTO>>(offres);
+            return _mapper.Map<IEnumerable<MesOffreResponseDTO>>(offres).Reverse();
         }
     }
 }
