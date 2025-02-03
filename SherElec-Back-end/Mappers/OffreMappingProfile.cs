@@ -10,7 +10,7 @@ namespace SherElec_Back_end.Mappers
         public OffreMappingProfile()
         {
             // Mapping pour convertir Offer en OfferResponseDto
-            //CreateMap<Offre, OffreResponseDTO>();
+            CreateMap<Offre, MesOffreResponseDTO>();
 
             // Mapping pour convertir Offre en OffreResponseDTO
             CreateMap<Offre, OffreResponseDTO>()
@@ -18,7 +18,10 @@ namespace SherElec_Back_end.Mappers
                 {
                     IdUser = src.User.ID,
                     Nom = src.User.Nom,
-                    Email = src.User.Email
+                    Prenom = src.User.Prenom,
+                    Email = src.User.Email,
+                    NumeroTelephone = src.User.NumeroTelephone
+
                 }));
 
             // Mapping pour convertir OfferRequestDto en Offer  

@@ -33,6 +33,13 @@ namespace SherElec_Back_end.Repositories
                .ToListAsync();
         }
 
+        public async Task<IEnumerable<Offre>> GetOffresByUserIdAsync(int userId)
+        {
+            return await _context.Offers
+                                 .Where(o => o.UserID == userId)
+                                 .ToListAsync(); 
+        }
+
 
         public async Task UpdateOffer(Offre offer)
         {

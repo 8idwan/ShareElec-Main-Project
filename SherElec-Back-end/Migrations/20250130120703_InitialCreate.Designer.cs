@@ -12,7 +12,7 @@ using SherElec_Back_end.Data;
 namespace SherElec_Back_end.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250130102558_InitialCreate")]
+    [Migration("20250130120703_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -69,6 +69,9 @@ namespace SherElec_Back_end.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+
+                    b.Property<double>("Balance")
+                        .HasColumnType("float");
 
                     b.Property<string>("Email")
                         .IsRequired()

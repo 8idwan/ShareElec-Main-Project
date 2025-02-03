@@ -10,17 +10,17 @@ using SherElec_Back_end.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 // Ajouter la configuration CORS
-/*builder.Services.AddCors(options =>
+builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAngularApp",
-        policy =>
+    options.AddPolicy("AllowAll",
+        builder =>
         {
-            policy
+            builder
                 .AllowAnyOrigin()
-                .AllowAnyHeader()
-                .AllowAnyMethod();
+                .AllowAnyMethod()
+                .AllowAnyHeader();
         });
-});*/
+});
 
 // Ajouter le DbContext avec la chaine de connexion
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -38,6 +38,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+app.UseCors("AllowAll");
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
