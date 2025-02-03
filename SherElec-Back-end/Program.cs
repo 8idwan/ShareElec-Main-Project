@@ -6,12 +6,21 @@ using ShareElec.Repositories;
 using SherElec_Back_end.Mapper; // Assure-toi que ce namespace est correct
 using SherElec_Back_end.Model;
 using SherElec_Back_end.Repositories;
-using SherElec_Back_end.Services; // Assure-toi que ce namespace est correct pour les entités
+using SherElec_Back_end.Services; // Assure-toi que ce namespace est correct pour les entitÃ©s
 
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAngularDevServer",
+        builder => builder
+            .WithOrigins("http://localhost:4200")
+            .AllowAnyMethod()
+            .AllowAnyHeader()
+            .AllowCredentials());
+});
 // Ajouter AutoMapper
 builder.Services.AddAutoMapper(typeof(UserMapping).Assembly);
 
@@ -20,11 +29,11 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
 );
 
-// Ajouter les dépendances des repositories et services
+// Ajouter les dÃ©pendances des repositories et services
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
 
-// Ajouter les contrôleurs
+// Ajouter les contrÃ´leurs
 builder.Services.AddControllers();
 
 // Ajouter Swagger
@@ -66,9 +75,9 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidateAudience = true,
             ValidateLifetime = true,
             ValidateIssuerSigningKey = true,
-            ValidIssuer = builder.Configuration["Jwt:Issuer"],  // Utilise le nom de domaine de l'émetteur
+            ValidIssuer = builder.Configuration["Jwt:Issuer"],  // Utilise le nom de domaine de l'Ã©metteur
             ValidAudience = builder.Configuration["Jwt:Audience"],  // Public cible
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Secret"])) // Clé secrète
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Secret"])) // ClÃ© secrÃ¨te
         };
     });
 
@@ -81,6 +90,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+
+app.UseCors("AllowAngularDevServer");
 app.UseHttpsRedirection();
 
 // Activer l'authentification et l'autorisation

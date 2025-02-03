@@ -2,6 +2,7 @@
 using System.Security.Claims;
 using System.Text;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
@@ -11,6 +12,7 @@ using SherElec_Back_end.Services;
 
 namespace SherElec_Back_end.Controllers
 {
+    //[EnableCors("AllowAngularDevServer")]
     [Route("api/user")]
     [ApiController]
     public class UserController : ControllerBase
