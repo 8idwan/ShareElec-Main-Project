@@ -42,24 +42,21 @@ namespace SherElec_Back_end.Services
         private async Task SendVerificationEmail(string email, string code)
         {
             var smtpSettings = _configuration.GetSection("SmtpSettings");
-
             using var client = new SmtpClient(smtpSettings["Server"])
             {
                 Port = int.Parse(smtpSettings["Port"]),
                 Credentials = new NetworkCredential(smtpSettings["SenderEmail"], smtpSettings["SenderPassword"]),
                 EnableSsl = bool.Parse(smtpSettings["EnableSsl"])
             };
-
             var mailMessage = new MailMessage
             {
-                From = new MailAddress(smtpSettings["SenderEmail"]),
+                From = new MailAddress(smtpSettings["SenderEmail"], "noreply"),  
                 Subject = "Code de vérification",
                 Body = $"Votre code de vérification est: {code} \n \n ne pas rependre a ce message ." +
-                $" \n \n Merci pour Ton inscription a notre site ",
+                       $" \n \n Merci pour Ton inscription a notre site ",
                 IsBodyHtml = false
             };
             mailMessage.To.Add(email);
-
             await client.SendMailAsync(mailMessage);
         }
 

@@ -1,15 +1,41 @@
 [
   {
     "ContainingType": "SherElec_Back_end.Controllers.UserController",
-    "Method": "ajoutCompte",
-    "RelativePath": "api/user/add",
-    "HttpMethod": "POST",
+    "Method": "GetUserInfo",
+    "RelativePath": "api/user/{id}",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "userRequestDTO",
-        "Type": "SherElec_Back_end.DTO.UserRequestDTO",
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SherElec_Back_end.DTO.UserRespenseDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SherElec_Back_end.Controllers.UserController",
+    "Method": "RemoveUser",
+    "RelativePath": "api/user/del/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
@@ -61,6 +87,38 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "SherElec_Back_end.Controllers.UserController",
+    "Method": "InitiateVerification",
+    "RelativePath": "api/user/sign-in",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userRequestDTO",
+        "Type": "SherElec_Back_end.DTO.UserRequestDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SherElec_Back_end.Controllers.UserController",
+    "Method": "VerifyEmail",
+    "RelativePath": "api/user/veriferEmail",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "SherElec_Back_end.DTOs.VerificationRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "SherElec_Back_end.Controllers.WeatherForecastController",

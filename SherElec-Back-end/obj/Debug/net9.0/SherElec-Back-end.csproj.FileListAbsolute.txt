@@ -321,3 +321,4 @@ C:\Users\badr4\OneDrive\Bureau\ShareElec\SherElec-Back-end\bin\Debug\net9.0\Sher
 C:\Users\badr4\OneDrive\Bureau\ShareElec\SherElec-Back-end\obj\Debug\net9.0\SherElec-Back-end.genruntimeconfig.cache
 C:\Users\badr4\OneDrive\Bureau\ShareElec\SherElec-Back-end\obj\Debug\net9.0\ref\SherElec-Back-end.dll
 C:\Users\badr4\OneDrive\Bureau\ShareElec\SherElec-Back-end\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\badr4\OneDrive\Bureau\ShareElec\SherElec-Back-end\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
