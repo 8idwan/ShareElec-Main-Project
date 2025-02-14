@@ -156,4 +156,3 @@ D:\ProjWeb\ShareElec-Main-Project\SherElec-Back-end\obj\Debug\net9.0\refint\Sher
 D:\ProjWeb\ShareElec-Main-Project\SherElec-Back-end\obj\Debug\net9.0\SherElec-Back-end.pdb
 D:\ProjWeb\ShareElec-Main-Project\SherElec-Back-end\obj\Debug\net9.0\SherElec-Back-end.genruntimeconfig.cache
 D:\ProjWeb\ShareElec-Main-Project\SherElec-Back-end\obj\Debug\net9.0\ref\SherElec-Back-end.dll
-D:\ProjWeb\ShareElec-Main-Project\SherElec-Back-end\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
