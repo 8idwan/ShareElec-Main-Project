@@ -1,5 +1,4 @@
-﻿using global::SherElec_Back_end.Model;
-using global::SherElec_Back_end.Models;
+﻿using global::SherElec_Back_end.Models;
 
 namespace SherElec_Back_end.Repositories.Interfaces
 {

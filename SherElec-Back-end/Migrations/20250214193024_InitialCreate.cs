@@ -12,6 +12,26 @@ namespace SherElec_Back_end.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "EmailVerifierTable",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    VerificationCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Nom = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Prenom = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    NumeroTelephone = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    MotDePasse = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    sommeEnergie = table.Column<double>(type: "float", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_EmailVerifierTable", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Users",
                 columns: table => new
                 {
@@ -22,7 +42,7 @@ namespace SherElec_Back_end.Migrations
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     NumeroTelephone = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     MotDePasse = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Balance = table.Column<double>(type: "float", nullable: false)
+                    sommeEnergie = table.Column<double>(type: "float", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -63,6 +83,9 @@ namespace SherElec_Back_end.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "EmailVerifierTable");
+
             migrationBuilder.DropTable(
                 name: "Offers");
 

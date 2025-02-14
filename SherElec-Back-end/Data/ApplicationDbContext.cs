@@ -10,5 +10,7 @@ namespace SherElec_Back_end.Data
 
         public DbSet<User> Users { get; set; }
         public DbSet<Offre> Offers { get; set; }
+
+        public DbSet<EmailVerifier> EmailVerifierTable { get; set; }
     }
 }

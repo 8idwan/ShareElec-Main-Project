@@ -1,9 +1,7 @@
-﻿
-using AutoMapper;
-using global::SherElec_Back_end.DTOs.Request;
-using global::SherElec_Back_end.DTOs.Response;
-using global::SherElec_Back_end.Model;
-
+﻿using AutoMapper;
+using SherElec_Back_end.DTOs.Request;
+using SherElec_Back_end.DTOs.Response;
+using SherElec_Back_end.Models;
 
 namespace SherElec_Back_end.Mappers
 {

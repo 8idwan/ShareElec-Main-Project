@@ -11,7 +11,7 @@
 
         public DateOnly Date { get; set; }
 
-        public UserRespenseDTO User { get; set; }
+        public UserRespenseDTO? User { get; set; }
 
     }
 }

@@ -16,11 +16,11 @@ namespace SherElec_Back_end.Mappers
             CreateMap<Offre, OffreResponseDTO>()
                 .ForMember(dest => dest.User, opt => opt.MapFrom(src => new UserRespenseDTO
                 {
-                    IdUser = src.User.ID,
-                    Nom = src.User.Nom,
-                    Prenom = src.User.Prenom,
-                    Email = src.User.Email,
-                    NumeroTelephone = src.User.NumeroTelephone
+                    ID = src.User.ID,
+                    nom = src.User.Nom,
+                    prenom = src.User.Prenom,
+                    email = src.User.Email,
+                    numeroTelephone = src.User.NumeroTelephone
 
                 }));
 

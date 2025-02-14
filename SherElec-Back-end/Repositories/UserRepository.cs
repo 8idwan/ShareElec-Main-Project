@@ -1,11 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SherElec_Back_end.Data;
-using SherElec_Back_end.Model;
 using SherElec_Back_end.Models;
 using SherElec_Back_end.Repositories.Interfaces;
 
-
-namespace SherElec_Back_end.Repositories
+namespace ShareElec.Repositories
 {
     public class UserRepository : IUserRepository
     {
@@ -63,40 +61,7 @@ namespace SherElec_Back_end.Repositories
 
         public async Task<EmailVerifier> GetEmailVerification(string email, string code)
         {
-            return await _context.EmailVerifierTable
-                .Where(e => e.Email == email && e.VerificationCode == code)
-                .OrderByDescending(e => e.CreatedAt)
-                .FirstOrDefaultAsync();
-        }
-
-        public Task AddUser(User user)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<User> IUserRepository.GetUserById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<User> IUserRepository.GetUserByEmailAsync(string email)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task UpdateUser(User user)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task AddEmailVerification(EmailVerifier emailVerifier)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<EmailVerifier> IUserRepository.GetEmailVerification(string email, string code)
-        {
-            throw new NotImplementedException();
+            return await _context.EmailVerifierTable.Where(e => e.Email == email && e.VerificationCode == code).OrderByDescending(e => e.CreatedAt).FirstOrDefaultAsync();
         }
     }
 }

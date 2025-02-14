@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace SherElec_Back_end.Model
+namespace SherElec_Back_end.Models
 {
     public class User
     {
