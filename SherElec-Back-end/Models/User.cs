@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace SherElec_Back_end.Model
+namespace SherElec_Back_end.Models
 {
     public class User
     {
@@ -11,7 +11,8 @@ namespace SherElec_Back_end.Model
         public required string Email { get; set; }
         public required string NumeroTelephone { get; set; }
         public required string MotDePasse { get; set; }
-        public double sommeEnergie { get; set; }
+
+        public double Balance { get; set; }
 
     }
 }
