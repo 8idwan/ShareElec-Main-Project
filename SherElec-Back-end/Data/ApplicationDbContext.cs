@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
 using SherElec_Back_end.Models;
 
 namespace SherElec_Back_end.Data
@@ -12,5 +13,6 @@ namespace SherElec_Back_end.Data
         public DbSet<Offre> Offers { get; set; }
 
         public DbSet<EmailVerifier> EmailVerifierTable { get; set; }
+        public DbSet<Transaction> Transactions { get; set; }
     }
 }

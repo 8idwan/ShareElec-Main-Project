@@ -1,0 +1,37 @@
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
+
+namespace SherElec_Back_end.Models
+{
+    public class Transaction
+    {
+        [Key]
+        public int ID { get; set; }
+
+        [Required]
+        [ForeignKey("Acheteur")]
+        public int IdAcheteur { get; set; }
+        public User Acheteur { get; set; } // Navigation property
+
+        [Required]
+        [ForeignKey("Vendeur")]
+        public int IdVendeur { get; set; }
+        public User Vendeur { get; set; } // Navigation property
+
+        [Required]
+        public double Quantite { get; set; }
+
+        [Required]
+        public double PrixUnitaire { get; set; }
+
+        [Required]
+        public double PrixTotal { get; set; }
+
+        [Required]
+        public DateTime DateTransaction { get; set; }
+
+        [ForeignKey("Offre")]
+        public int? OffreId { get; set; } 
+        public Offre? Offre { get; set; } 
+    }
+}
