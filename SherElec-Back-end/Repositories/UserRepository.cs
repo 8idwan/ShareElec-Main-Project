@@ -27,10 +27,15 @@ namespace ShareElec.Repositories
             return await _context.Users.FindAsync(id);
         }
 
+        public async Task<User> GetUserByIdWithDeleted(int id)
+        {
+            return await _context.Users.FindAsync(id); // Inclure les utilisateurs supprimés
+        }
+
 
         public async Task<User> GetUserByEmailAsync(string email)
         {
-            return await _context.Users.FirstOrDefaultAsync(u => u.Email == email); // Recherche un utilisateur avec cet email
+            return await _context.Users.FirstOrDefaultAsync(u => u.Email == email && !u.IsDeleted); // Exclure les utilisateurs supprimes
         }
 
 
@@ -47,7 +52,7 @@ namespace ShareElec.Repositories
             var user = await _context.Users.FindAsync(id);
             if (user != null)
             {
-                _context.Users.Remove(user);
+                user.IsDeleted = true; // Marquer comme supprimé
                 await _context.SaveChangesAsync();
             }
         }

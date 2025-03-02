@@ -6,6 +6,7 @@ namespace SherElec_Back_end.Repositories.Interfaces
     {
         Task AddUser(User user);
         Task<User> GetUserById(int id);
+         Task<User> GetUserByIdWithDeleted(int id);
         Task<User> GetUserByEmailAsync(string email);
 
 

@@ -17,7 +17,7 @@ namespace SherElec_Back_end.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "9.0.1")
+                .HasAnnotation("ProductVersion", "9.0.2")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -62,7 +62,7 @@ namespace SherElec_Back_end.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("EmailVerifierTable");
+                    b.ToTable("EmailVerifierTable", (string)null);
                 });
 
             modelBuilder.Entity("SherElec_Back_end.Models.Offre", b =>
@@ -99,7 +99,7 @@ namespace SherElec_Back_end.Migrations
 
                     b.HasIndex("UserID");
 
-                    b.ToTable("Offers");
+                    b.ToTable("Offers", (string)null);
                 });
 
             modelBuilder.Entity("SherElec_Back_end.Models.User", b =>
@@ -135,7 +135,7 @@ namespace SherElec_Back_end.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("Users");
+                    b.ToTable("Users", (string)null);
                 });
 
             modelBuilder.Entity("SherElec_Back_end.Models.Offre", b =>
