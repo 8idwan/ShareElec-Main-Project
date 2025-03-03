@@ -211,7 +211,7 @@ namespace SherElec_Back_end.Services
 
         public async Task<UserRespenseDTO> GetUserInfo(int id)
         {
-            var user = await _userRepo.GetUserById(id);
+            var user = await _userRepo.GetUserByIdWithDeleted(id);
 
             if (user == null)
             {

@@ -27,7 +27,6 @@ namespace SherElec_Back_end.Repositories
 
         public async Task<IEnumerable<Offre>> GetAllOffers()
         {
-            //return await _context.Offers.ToListAsync();
             return await _context.Offers
                .Include(o => o.User)  // Inclure l'utilisateur
                .ToListAsync();
@@ -37,16 +36,14 @@ namespace SherElec_Back_end.Repositories
         {
             return await _context.Offers
                                  .Where(o => o.UserID == userId)
-                                 .ToListAsync(); 
+                                 .ToListAsync();
         }
-
 
         public async Task UpdateOffer(Offre offer)
         {
             _context.Offers.Update(offer);
             await _context.SaveChangesAsync();
         }
-
 
         public async Task DeleteOffer(int id)
         {
@@ -57,7 +54,6 @@ namespace SherElec_Back_end.Repositories
                 await _context.SaveChangesAsync();
             }
         }
-
 
     }
 }

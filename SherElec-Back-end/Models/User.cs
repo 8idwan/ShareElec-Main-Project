@@ -12,7 +12,7 @@ namespace SherElec_Back_end.Models
         public required string NumeroTelephone { get; set; }
         public required string MotDePasse { get; set; }
         public double sommeEnergie { get; set; }
-        public bool IsDeleted { get; set; } = false;
+        public bool IsDeleted { get; set; } = false;  // Ajout de la propriété IsDeleted
 
 
     }
