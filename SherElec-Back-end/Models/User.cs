@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using SherElec_Back_end.DTOs.Response;
 
 namespace SherElec_Back_end.Models
 {
@@ -14,6 +15,9 @@ namespace SherElec_Back_end.Models
         public double sommeEnergie { get; set; }
         public bool IsDeleted { get; set; } = false;  // Ajout de la propriété IsDeleted
 
-
+        public static implicit operator User(UserRespenseDTO v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

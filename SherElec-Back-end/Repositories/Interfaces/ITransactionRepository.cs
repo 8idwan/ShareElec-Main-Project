@@ -1,4 +1,6 @@
-﻿using System.Transactions;
+﻿using SherElec_Back_end.Models;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace SherElec_Back_end.Repositories.Interfaces
 {

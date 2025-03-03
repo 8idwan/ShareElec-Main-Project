@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore;
 
 namespace SherElec_Back_end.Models
 {
@@ -11,12 +12,14 @@ namespace SherElec_Back_end.Models
         [Required]
         [ForeignKey("Acheteur")]
         public int IdAcheteur { get; set; }
-        public User Acheteur { get; set; } // Navigation property
+        [DeleteBehavior(DeleteBehavior.NoAction)]
+        public User Acheteur { get; set; }
 
         [Required]
         [ForeignKey("Vendeur")]
         public int IdVendeur { get; set; }
-        public User Vendeur { get; set; } // Navigation property
+        [DeleteBehavior(DeleteBehavior.NoAction)]
+        public User Vendeur { get; set; }
 
         [Required]
         public double Quantite { get; set; }
@@ -31,7 +34,7 @@ namespace SherElec_Back_end.Models
         public DateTime DateTransaction { get; set; }
 
         [ForeignKey("Offre")]
-        public int? OffreId { get; set; } 
-        public Offre? Offre { get; set; } 
+        public int? OffreId { get; set; }
+        public Offre? Offre { get; set; }
     }
 }
