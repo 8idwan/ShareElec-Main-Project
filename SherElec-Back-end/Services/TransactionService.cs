@@ -40,12 +40,30 @@ namespace SherElec_Back_end.Services
 
             await _transactionRepository.CreateTransactionAsync(transaction);
             return transaction;
-        }        
-        
+        }
 
-        public Task<Transaction> GetTransactionByIdAsync(int id)
+
+        public async Task<Transaction> GetTransactionByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            var transaction = await _transactionRepository.GetTransactionByIdAsync(id);
+
+            if (transaction == null)
+            {
+                return null;
+            }
+
+            // Récupérer l'offre associée, même si l'utilisateur est supprimé
+            if (transaction.OffreId.HasValue)
+            {
+                transaction.Offre = await _offreRepository.GetOfferById(transaction.OffreId.Value); // Utiliser GetOfferById
+            }
+
+            // Récupérer les utilisateurs (acheteur et vendeur) même s'ils sont supprimés
+            transaction.Acheteur = await _userService.GetUserInfo(transaction.IdAcheteur);
+            transaction.Vendeur = await _userService.GetUserInfo(transaction.IdVendeur);
+
+
+            return transaction;
         }
     }
 }
