@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SherElec-Back-end")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9854eb0cd52f894c963de2f7da902f7c8bbf3fc0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b9b32ecc685af1bd84548472771c8c9bb45ce3ba")]
 [assembly: System.Reflection.AssemblyProductAttribute("SherElec-Back-end")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SherElec-Back-end")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
