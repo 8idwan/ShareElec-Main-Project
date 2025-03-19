@@ -9,5 +9,7 @@ namespace SherElec_Back_end.Repositories.Interfaces
         Task<Transaction> GetTransactionByIdAsync(int id);
         Task<IEnumerable<Transaction>> GetAllTransactionsAsync();
         Task CreateTransactionAsync(Transaction transaction);
+        Task<IEnumerable<Transaction>> GetTransactionsVenduesAsync(int vendeurId);
+        Task<IEnumerable<Transaction>> GetTransactionsAcheteesAsync(int acheteurId);
     }
 }

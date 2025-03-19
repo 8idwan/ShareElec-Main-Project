@@ -4,6 +4,7 @@ using SherElec_Back_end.Models;
 using SherElec_Back_end.Repositories.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace SherElec_Back_end.Repositories
@@ -62,6 +63,42 @@ namespace SherElec_Back_end.Repositories
             {
                 Console.Error.WriteLine($"Erreur lors de la création de la transaction: {ex}");
                 throw;
+            }
+        }
+
+        public async Task<IEnumerable<Transaction>> GetTransactionsVenduesAsync(int vendeurId)
+        {
+            try
+            {
+                return await _context.Transactions
+                    .Include(t => t.Acheteur)
+                    .Include(t => t.Vendeur)
+                    .Include(t => t.Offre)
+                    .Where(t => t.IdVendeur == vendeurId)
+                    .ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                Console.Error.WriteLine($"Erreur lors de la récupération des transactions vendues par l'utilisateur {vendeurId}: {ex}");
+                return new List<Transaction>();
+            }
+        }
+
+        public async Task<IEnumerable<Transaction>> GetTransactionsAcheteesAsync(int acheteurId)
+        {
+            try
+            {
+                return await _context.Transactions
+                    .Include(t => t.Acheteur)
+                    .Include(t => t.Vendeur)
+                    .Include(t => t.Offre)
+                    .Where(t => t.IdAcheteur == acheteurId)
+                    .ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                Console.Error.WriteLine($"Erreur lors de la récupération des transactions achetées par l'utilisateur {acheteurId}: {ex}");
+                return new List<Transaction>();
             }
         }
     }
