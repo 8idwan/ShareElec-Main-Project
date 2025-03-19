@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+﻿﻿using AutoMapper;
 using SherElec_Back_end.DTOs.Request;
 using SherElec_Back_end.DTOs.Response;
 using SherElec_Back_end.Models;
@@ -20,9 +20,9 @@ namespace SherElec_Back_end.Services
 
         public async Task<OffreResponseDTO> CreateOfferAsync(OffreRequestDTO requestDto)
         {
-            var offre = _mapper.Map<Offre>(requestDto);
+            var offre = _mapper.Map<Offre>(requestDto);  // Mapper le DTO request en entité Offre
             await _offreRepository.CreateOffre(offre);
-            return _mapper.Map<OffreResponseDTO>(offre);
+            return _mapper.Map<OffreResponseDTO>(offre);  // Mapper l'entité Offre en DTO response
         }
 
         public async Task<OffreResponseDTO> GetOfferByIdAsync(int id)
@@ -32,16 +32,10 @@ namespace SherElec_Back_end.Services
                 return null;
             return _mapper.Map<OffreResponseDTO>(offre);
         }
-
         public async Task<IEnumerable<OffreResponseDTO>> GetAllOffersAsync()
         {
             var offres = await _offreRepository.GetAllOffers();
-            var offreDtos = _mapper.Map<IEnumerable<OffreResponseDTO>>(offres);
-
-            // Filtrer les offres avec des utilisateurs supprimés
-            var filteredOffreDtos = offreDtos.Where(o => o.User != null).Reverse();
-
-            return filteredOffreDtos;
+            return _mapper.Map<IEnumerable<OffreResponseDTO>>(offres).Reverse();
         }
 
         public async Task<OffreResponseDTO> UpdateOfferAsync(int id, OffreRequestDTO requestDto)
@@ -63,6 +57,7 @@ namespace SherElec_Back_end.Services
             await _offreRepository.DeleteOffer(id);
             return true;
         }
+
 
         public async Task<IEnumerable<MesOffreResponseDTO>> GetOffresByUserIdAsync(int userId)
         {

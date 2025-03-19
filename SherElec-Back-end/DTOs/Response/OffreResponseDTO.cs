@@ -1,4 +1,4 @@
-﻿namespace SherElec_Back_end.DTOs.Response
+﻿﻿namespace SherElec_Back_end.DTOs.Response
 {
     public class OffreResponseDTO
     {

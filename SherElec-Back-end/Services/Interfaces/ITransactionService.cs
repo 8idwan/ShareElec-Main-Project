@@ -5,7 +5,9 @@ namespace SherElec_Back_end.Services.Interfaces
 {
     public interface ITransactionService
     {
-        Task<Transaction> GetTransactionByIdAsync(int id);
+       Task<Transaction> GetTransactionByIdAsync(int id);
         Task<Transaction> CreateTransactionAsync(int idAcheteur, int idVendeur, double quantite, int? offreId);
+        Task<IEnumerable<Transaction>> GetTransactionsVenduesAsync(int vendeurId);
+        Task<IEnumerable<Transaction>> GetTransactionsAcheteesAsync(int acheteurId)
     }
 }
