@@ -19,8 +19,10 @@
         }
 
         [HttpPost("create-payment-intent")]
-        public async Task<IActionResult> CreatePaymentIntent([FromBody] PaymentRequest request)
+        public async Task<IActionResult> CreatePaymentIntent([FromBody] TransactionRequest request)
         {
+            Console.WriteLine($"🔹 Requête reçue : Amount = {request}");
+
             var options = new SessionCreateOptions
             {
                 PaymentMethodTypes = new List<string> { "card" },
