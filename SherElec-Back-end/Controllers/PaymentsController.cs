@@ -1,6 +1,7 @@
 ﻿namespace SherElec_Back_end.Controllers
 {
     using Microsoft.AspNetCore.Mvc;
+    using SherElec_Back_end.DTOs.Request;
     using Stripe;
     using Stripe.Checkout;
     using System;
@@ -52,9 +53,6 @@
 
     }
 
-    public class PaymentRequest
-    {
-        public int Amount { get; set; }
-    }
+   
 
 }
