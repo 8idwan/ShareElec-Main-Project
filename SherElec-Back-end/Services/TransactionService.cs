@@ -34,7 +34,29 @@ namespace SherElec_Back_end.Services
 
         }
 
-       
+        public async Task<Transaction> GetTransactionByIdAsync(int id)
+        {
+            var transaction = await _transactionRepository.GetTransactionByIdAsync(id);
+
+            if (transaction == null)
+            {
+                return null;
+            }
+
+            // Récupérer l'offre associée, même si l'utilisateur est supprimé
+            if (transaction.OffreId.HasValue)
+            {
+                transaction.Offre = await _offreRepository.GetOfferById(transaction.OffreId.Value); // Utiliser GetOfferById
+            }
+
+            // Récupérer les utilisateurs (acheteur et vendeur) même s'ils sont supprimés
+             transaction.Acheteur = await _userRepository.GetUserByIdWithDeleted(transaction.IdAcheteur);
+             transaction.Vendeur = await  _userRepository.GetUserByIdWithDeleted(transaction.IdVendeur);
+           
+
+            return transaction;
+        }
+
         public async Task CreateTransactionAsync(PaymentSuccessRequest request)
         {
             using (var transactionScope = _context.Database.BeginTransaction())
@@ -102,6 +124,6 @@ namespace SherElec_Back_end.Services
             }
         }
 
-
+          
         }
     }
